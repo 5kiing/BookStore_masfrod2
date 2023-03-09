@@ -32,7 +32,7 @@ namespace BookStore_masfrod2.Models
 
         public double CalculateTotal()
         {
-            double sum = Items.Sum(x => x.Quantity * x.Price);
+            double sum = Items.Sum(x => x.Quantity * x.Book.Price);
 
             return sum;
         }
