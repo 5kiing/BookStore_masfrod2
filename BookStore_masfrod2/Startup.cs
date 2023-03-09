@@ -39,6 +39,14 @@ namespace BookStore_masfrod2
             });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            // enable razoer pages to be displayed
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            // session control
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,12 +60,28 @@ namespace BookStore_masfrod2
             // corresponds to wwwroot 
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
-            // create endpoint
+            // create more user friendly endpoints
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage",
+                    "{projectType}/Page{pageNum}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("Paging",
+                    "Page{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
+                endpoints.MapControllerRoute("type",
+                    "{projectType}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
