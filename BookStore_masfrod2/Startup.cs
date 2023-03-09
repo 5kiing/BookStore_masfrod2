@@ -68,7 +68,7 @@ namespace BookStore_masfrod2
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("typepage",
-                    "{projectType}/Page{pageNum}",
+                    "{category}/Page{pageNum}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("Paging",
@@ -76,7 +76,7 @@ namespace BookStore_masfrod2
                     new { Controller = "Home", action = "Index", pageNum = 1 });
 
                 endpoints.MapControllerRoute("type",
-                    "{projectType}",
+                    "{category}",
                     new { Controller = "Home", action = "Index", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
