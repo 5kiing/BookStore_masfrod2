@@ -3,19 +3,19 @@
 @model IEnumerable<string>
 
 <div class="d-grid gap-2">
-    <a asp-controller="Home" asp-action="Index" asp-route-category="" asp-route-pageNum="1" class="btn btn-block btn-outline-secondary">Home</a>
+    <a asp-controller="Home" asp-action="Index" asp-route-category="" asp-route-productPage="" class="btn btn-block btn-outline-secondary">Home</a>
 
 @*highlight the selected button*@
 
     @foreach (string c in Model)
     {
-<a class="btn btn-block
-       @(c == ViewBag.SelectedCategory
-           ? "btn-primary": "btn-outline-secondary")"
-   asp-action="Index" asp-controller="Home"
-   asp-route-category="@c"
-   asp-route-productPage="1">
-    @c
-</a>
+        <a class="btn btn-block
+               @(c == ViewBag.SelectedCategory
+                   ? "btn-primary": "btn-outline-secondary")"
+           asp-action="Index" asp-controller="Home"
+           asp-route-category="@c"
+           asp-route-productPage="1">
+            @c
+        </a>
     }
 </div>

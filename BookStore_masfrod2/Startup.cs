@@ -47,6 +47,9 @@ namespace BookStore_masfrod2
 
             // session control
             services.AddSession();
+
+            services.AddScoped<Cart>(x => SessionCart.GetCart(x));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,16 +71,19 @@ namespace BookStore_masfrod2
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("typepage",
-                    "{category}/Page{pageNum}",
+                    "{category}/Page{productPage}",
                     new { Controller = "Home", action = "Index" });
 
+                
+
                 endpoints.MapControllerRoute("Paging",
-                    "Page{pageNum}",
-                    new { Controller = "Home", action = "Index", pageNum = 1 });
+                    "Page{productPage}",
+                    new { Controller = "Home", action = "Index", productPage = 1 });
 
                 endpoints.MapControllerRoute("type",
-                    "{category}",
-                    new { Controller = "Home", action = "Index", pageNum = 1 });
+                                    "{category}",
+                                    new { Controller = "Home", action = "Index", productPage = 1 });
+                
 
                 endpoints.MapDefaultControllerRoute();
 

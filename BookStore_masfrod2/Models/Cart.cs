@@ -9,7 +9,7 @@ namespace BookStore_masfrod2.Models
     {
         public List<CartLineItem> Items { get; set; } = new List<CartLineItem>();
 
-        public void AddItem(Book book, int qty)
+        public virtual void AddItem(Book book, int qty)
         {
             CartLineItem line = Items
                 .Where(b => b.Book.BookId == book.BookId)
@@ -28,6 +28,16 @@ namespace BookStore_masfrod2.Models
             {
                 line.Quantity += qty;
             }
+        }
+
+        public virtual void RemoveItem (Book book)
+        {
+            Items.RemoveAll(x => x.Book.BookId == book.BookId);
+        }
+
+        public virtual void ClearCart()
+        {
+            Items.Clear();
         }
 
         public double CalculateTotal()

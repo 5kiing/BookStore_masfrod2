@@ -22,7 +22,7 @@ namespace BookStore_masfrod2.Controllers
         }
 
         // perform the logic to determine how many pages are needed to include the list
-        public IActionResult Index(string category, int pageNum = 1)
+        public IActionResult Index(string category, int productPage)
         {
             int pageSize = 10;
 
@@ -31,7 +31,7 @@ namespace BookStore_masfrod2.Controllers
                 Books = repo.Books
                 .Where(b => b.Category == category || category == null)
                 .OrderBy(b => b.Title)
-                .Skip((pageNum - 1) * pageSize)
+                .Skip((productPage - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
@@ -40,7 +40,7 @@ namespace BookStore_masfrod2.Controllers
                         ? repo.Books.Count()
                         : repo.Books.Where(x => x.Category == category).Count()),
                     BooksPerPage = pageSize,
-                    CurrentPage = pageNum
+                    CurrentPage = productPage
                 }
             };
 
