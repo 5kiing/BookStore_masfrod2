@@ -81,14 +81,14 @@ namespace BookStore_masfrod2
                     new { Controller = "Home", action = "Index", productPage = 1 });
 
                 endpoints.MapControllerRoute("type",
-                                    "{category}",
-                                    new { Controller = "Home", action = "Index", productPage = 1 });
+                    "{category}",
+                    new { Controller = "Home", action = "Index", productPage = 1 });
                 
 
                 endpoints.MapDefaultControllerRoute();
 
                 endpoints.MapRazorPages();
-            });
+            });   
         }
     }
 }
