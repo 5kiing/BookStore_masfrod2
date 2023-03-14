@@ -38,7 +38,9 @@ namespace BookStore_masfrod2
                 options.UseSqlite(Configuration["ConnectionStrings:BookstoreDbConnection"]);
             });
 
+            // enable repositories for the booklist and purchases models
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
 
             // enable razoer pages to be displayed
             services.AddRazorPages();
@@ -73,8 +75,6 @@ namespace BookStore_masfrod2
                 endpoints.MapControllerRoute("typepage",
                     "{category}/Page{productPage}",
                     new { Controller = "Home", action = "Index" });
-
-                
 
                 endpoints.MapControllerRoute("Paging",
                     "Page{productPage}",

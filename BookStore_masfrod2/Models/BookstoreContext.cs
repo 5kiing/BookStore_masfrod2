@@ -23,5 +23,6 @@ namespace BookStore_masfrod2.Models
         }
 
         public virtual DbSet<Book> Books { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
     }
 }
