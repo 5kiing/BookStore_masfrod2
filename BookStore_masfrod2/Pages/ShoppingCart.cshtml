@@ -31,10 +31,8 @@
 
                 <td class="text-center">
                     <form asp-page-handler="Remove" method="post">
-                        <input type="hidden" name="BookId"
-                                                              value="@i.Book.BookId" />
-                        <input type="hidden" name="returnUrl"
-                                                              value="@Model.ReturnUrl" />
+                        <input type="hidden" name="bookId" value="@i.Book.BookId" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
                         <button type="submit" class="btn btn-sm btn-danger">
                             Remove
                         </button>
