@@ -1,4 +1,7 @@
-﻿using BookStore_masfrod2.Infrastructure;
+﻿// Mason Frodsham masfrod2
+// Mission 11
+
+using BookStore_masfrod2.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -7,6 +10,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
+// this manages the session of each cart and ensures the proper data is stored there.
 namespace BookStore_masfrod2.Models
 {
     public class SessionCart : Cart

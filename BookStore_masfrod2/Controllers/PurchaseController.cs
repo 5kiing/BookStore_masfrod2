@@ -1,14 +1,19 @@
-﻿using BookStore_masfrod2.Models;
+﻿// Mason Frodsham masfrod2
+// Mission 9 
+
+using BookStore_masfrod2.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// this is the controller for the shopping cart checkout process.
 namespace BookStore_masfrod2.Controllers
 {
     public class PurchaseController : Controller
     {
+        // purchase repository is called here
         private IPurchaseRepository repo { get; set; }
         private Cart cart { get; set; }
 
@@ -23,6 +28,8 @@ namespace BookStore_masfrod2.Controllers
         {
             return View(new Purchase());
         }
+
+        // this is the logic that allows or prevents the purchase to be completed and posted to the database
 
         [HttpPost]
         public IActionResult Checkout(Purchase purchase)

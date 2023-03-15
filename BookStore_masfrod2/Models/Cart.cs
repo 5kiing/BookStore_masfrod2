@@ -1,9 +1,15 @@
-﻿using System;
+﻿// Mason Frodsham masfrod2
+// Mission 11
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+// this class creates the shopping cart and calls the information from the cart Line Item to fill the cart 
+// this is based on each session
 namespace BookStore_masfrod2.Models
 {
     public class Cart
@@ -31,6 +37,7 @@ namespace BookStore_masfrod2.Models
             }
         }
 
+        // this is where crud logic is implemented
         public virtual void RemoveItem (Book book)
         {
             Items.RemoveAll(x => x.Book.BookId == book.BookId);

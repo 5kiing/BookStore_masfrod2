@@ -1,10 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿// Mason Frodsham masfrod2
+// Mission 11
+
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+// this creates the variables for the purchase in the checkout page.
 namespace BookStore_masfrod2.Models
 {
     public class Purchase

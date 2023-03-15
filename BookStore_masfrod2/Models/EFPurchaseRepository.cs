@@ -1,9 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// Mason Frodsham masfrod2
+// Mission 11
+
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// this repository inherets from the IPurchaseRepository and creates the context variable
 namespace BookStore_masfrod2.Models
 {
     public class EFPurchaseRepository : IPurchaseRepository
@@ -15,6 +19,7 @@ namespace BookStore_masfrod2.Models
             context = temp;
         }
 
+        // this is the logic to query data for each purchase also to post to the database
         public IQueryable<Purchase> Purchases => context.Purchases.Include(x => x.Lines).ThenInclude(x => x.Book);
 
         public void SavePurchase(Purchase purchase)

@@ -1,5 +1,5 @@
 ﻿// Mason Frodsham masfrod2
-// Mission 9 
+// Mission 11
 
 using BookStore_masfrod2.Models;
 using BookStore_masfrod2.Models.ViewModels;
@@ -34,6 +34,7 @@ namespace BookStore_masfrod2.Controllers
                 .Skip((productPage - 1) * pageSize)
                 .Take(pageSize),
 
+                //this filters the books based on category using the repository.
                 PageInfo = new PageInfo
                 {
                     TotalNumBooks = (category == null

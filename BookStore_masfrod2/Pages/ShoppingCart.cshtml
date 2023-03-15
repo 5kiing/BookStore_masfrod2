@@ -1,4 +1,7 @@
-﻿@page
+﻿@*// Mason Frodsham masfrod2
+// Mission 11*@
+
+@page
 @model BookStore_masfrod2.Pages.ShoppingCartModel
 @{
 }
@@ -14,23 +17,24 @@
             <th>Subtotal</th>
         </tr>
     </thead>
-    @*create shopping art view and show the book selected with the price*@
+    @*create shopping cart view and show the book selected with the price*@
     <tbody>
         @foreach (var i in Model.cart.Items)
         {
             <tr>
 
+                @*shopping cart line items*@
                 <td>@i.Book.Title</td>
                 <td>@i.Quantity</td>
-                <td>@i.Price</td>
-                <td>@i.Quantity * @i.Book.Price</td>
+                <td>@(i.Book.Price.ToString("c"))</td>
+                <td>@((i.Quantity * i.Book.Price).ToString("c"))</td>
 
                 <td class="text-center">
                     <form asp-page-handler="Remove" method="post">
                         <input type="hidden" name="BookId"
-                                                              value="@i.Book.BookId" />
+                                                              value="@i.Book.BookId" />
                         <input type="hidden" name="returnUrl"
-                                                              value="@Model.ReturnUrl" />
+                                                              value="@Model.ReturnUrl" />
                         <button type="submit" class="btn btn-sm btn-danger">
                             Remove
                         </button>
